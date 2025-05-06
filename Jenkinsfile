@@ -11,26 +11,24 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'node:18-alpine'
+                    image 'node:18' // Use full Debian-based Node instead of Alpine
                     reuseNode true
                 }
             }
-
-            
             steps {
                 sh '''
-                  echo "Building your project..."
-                  ls -la
-                  node --version
-                  npm --version
-                  npx --version
-                  npm ci
-                  npm run build
-                  ls -la
+                    echo "Node.js Build Stage"
+                    node -v
+                    npm -v
 
+                    rm -rf node_modules
+                    npm cache clean --force
+
+                    npm install
+                    npm run build
                 '''
             }
-        }
+}
 
         stage('Test') {
             steps {
