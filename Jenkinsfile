@@ -9,6 +9,12 @@ pipeline {
         }
 
         stage('Build') {
+            agent {
+                docker {
+                    image 'node:18-alpina'
+                    reuseNode true
+                }
+            }
             steps {
                 sh '''
                   echo "Building your project..."
