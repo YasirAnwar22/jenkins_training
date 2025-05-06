@@ -22,7 +22,11 @@ pipeline {
                   node --version
                   npm --version
                   npx --version
-                  rm -rf node_modules
+                  npm cache clean --force
+
+            
+                  rm -rf node_modules package-lock.json
+
                   npm ci
                   npm run build
                   ls -la
