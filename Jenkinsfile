@@ -22,6 +22,7 @@ pipeline {
                   node --version
                   npm --version
                   npx --version
+                  rm -rf node_modules
                   npm ci
                   npm run build
                   ls -la
