@@ -21,10 +21,7 @@ pipeline {
                     node -v
                     npm -v
 
-sudo npm config set cache ./npm-cache --global
- sudo    npm cache clean --force
-
-                   sudo npm ci
+                    sudo npm ci
                     npm run build
                     node index.js
 
