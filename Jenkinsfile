@@ -24,7 +24,8 @@ pipeline {
                     rm -rf node_modules
                     npm cache clean --force
 
-                    npm run build
+                    node index.js
+                    
                 '''
             }
 }
