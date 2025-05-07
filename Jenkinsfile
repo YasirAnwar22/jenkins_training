@@ -21,11 +21,10 @@ pipeline {
                     node -v
                     npm -v
 
-                    rm -rf node_modules
-                    npm cache clean --force
-
+                    npm ci
+                    npm run build
                     node index.js
-                    
+
                 '''
             }
 }
