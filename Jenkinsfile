@@ -21,9 +21,10 @@ pipeline {
                     node -v
                     npm -v
 
-                    sudo npm ci
+  node index.js
+                    npm ci
                     npm run build
-                    node index.js
+                  
 
                 '''
             }
